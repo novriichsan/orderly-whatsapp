@@ -9,6 +9,7 @@ import {
 } from "@tanstack/react-router";
 import { Toaster } from "@/components/ui/sonner";
 import { ThemeManager } from "@/components/theme-manager";
+import { BottomNav } from "@/components/bottom-nav";
 import appCss from "../styles.css?url";
 
 function NotFoundComponent() {
@@ -79,7 +80,10 @@ function RootComponent() {
   return (
     <QueryClientProvider client={queryClient}>
       <ThemeManager>
-        <Outlet />
+        <div className="mx-auto flex min-h-screen max-w-[460px] flex-col bg-background shadow-2xl">
+          <Outlet />
+          <BottomNav />
+        </div>
         <Toaster position="top-center" richColors closeButton />
       </ThemeManager>
     </QueryClientProvider>

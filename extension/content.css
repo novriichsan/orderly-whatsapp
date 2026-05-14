@@ -1,0 +1,23 @@
+.lov-import-btn {
+  opacity: 0;
+  transform: translateY(4px) scale(0.96);
+  transition: opacity .18s ease, transform .18s ease;
+  pointer-events: none;
+  background: linear-gradient(135deg, #6366f1, #8b5cf6);
+  color: #fff;
+  font: 600 12px/1 -apple-system, BlinkMacSystemFont, "Inter", sans-serif;
+  padding: 8px 12px;
+  border: 0;
+  border-radius: 9999px;
+  box-shadow: 0 6px 20px -6px rgba(99, 102, 241, 0.55);
+  cursor: pointer;
+}
+.lov-import-btn.lov-visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  pointer-events: auto;
+}
+.lov-import-btn.lov-imported {
+  background: linear-gradient(135deg, #10b981, #14b8a6);
+}
+.lov-import-btn:hover { filter: brightness(1.05); }

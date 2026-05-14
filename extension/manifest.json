@@ -1,0 +1,30 @@
+{
+  "manifest_version": 3,
+  "name": "WA Order Capture — Lovable Sidepanel",
+  "version": "1.0.0",
+  "description": "Capture WhatsApp messages and convert them into draft service orders inside the Chrome side panel.",
+  "permissions": ["sidePanel", "activeTab", "storage", "scripting"],
+  "host_permissions": ["https://web.whatsapp.com/*"],
+  "action": {
+    "default_title": "Open WA Order Sidepanel"
+  },
+  "side_panel": {
+    "default_path": "sidepanel.html"
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://web.whatsapp.com/*"],
+      "js": ["content.js"],
+      "css": ["content.css"],
+      "run_at": "document_idle"
+    }
+  ],
+  "icons": {
+    "16": "icon.png",
+    "48": "icon.png",
+    "128": "icon.png"
+  }
+}

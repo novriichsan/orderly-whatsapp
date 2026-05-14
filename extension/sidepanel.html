@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+    <title>WA Order Sidepanel</title>
+    <style>
+      html,body{margin:0;height:100%;background:#0f172a}
+      iframe{border:0;width:100%;height:100%;display:block}
+    </style>
+    <script>
+      // On open, check for pending import and pass it via URL hash
+      chrome.storage.local.get(["pendingImport"], (res) => {
+        const url = new URL("__APP_URL__", location.href);
+        if (res.pendingImport) {
+          url.hash = "/import?msg=" + encodeURIComponent(res.pendingImport);
+          chrome.storage.local.remove(["pendingImport"]);
+        }
+        document.getElementById("app").src = url.toString();
+      });
+    </script>
+  </head>
+  <body>
+    <iframe id="app" allow="clipboard-write"></iframe>
+  </body>
+</html>
